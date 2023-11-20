@@ -1,0 +1,131 @@
+/* Global Vars */
+:root {
+  --montserrat: Montserrat;
+  --barlow: Barlow Condensed;
+  --white: #ebebf0;
+  --black: #101014;
+  --brown: #d9bba0;
+  --lightBlue: #829fd9;
+  --darkBlue: #273273;
+  --gold: #ffae00;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: min-content auto;
+  grid-template-columns: 250px auto;
+  height: 100vh;
+  overflow: scroll;
+  background: rgb(245, 96, 64);
+  background: linear-gradient(0deg, rgba(245, 96, 64, 1) 0%, rgba(252, 175, 69, 1) 100%);
+}
+
+header {
+  display: flex;
+  font-family: var(--montserrat);
+  justify-content: space-between;
+  color: white;
+  grid-column: 1 / span 2;
+  padding: 10px 15px;
+  background: rgb(64, 93, 230);
+  background: linear-gradient(90deg, rgba(64, 93, 230, 1) 0%, rgba(131, 58, 180, 1) 100%);
+}
+
+button {
+  font-family: var(--montserrat);
+}
+
+form {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+form input,
+form textarea {
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+nav,
+article {
+  font-family: var(--montserrat);
+  overflow-x: auto;
+  height: 100%;
+  padding: 10px;
+}
+
+nav {
+  font-family: var(--barlow);
+  font-size: 1.3rem;
+  background: rgb(193, 53, 132);
+  background: linear-gradient(0deg, rgba(193, 53, 132, 1) 0%, rgba(253, 29, 29, 1) 100%);
+}
+
+nav p:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.articleEntry {
+  padding: 0;
+  margin: 0;
+  background: rgb(245, 96, 64);
+  background: linear-gradient(0deg, rgba(245, 96, 64, 1) 0%, rgba(252, 175, 69, 1) 100%);
+  height: 100vh;
+}
+
+article {
+  background: rgb(245, 96, 64);
+  background: linear-gradient(0deg, rgba(245, 96, 64, 1) 0%, rgba(252, 175, 69, 1) 100%);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+article .date {
+  white-space: normal;
+  word-wrap: break-word;
+  font-style: italic;
+}
+
+article .body {
+  padding: 5vh;
+  max-width: 400px;
+  white-space: normal;
+  word-wrap: break-word;
+  background-color: var(--darkBlue);
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: var(--montserrat);
+  text-shadow: var(--black) 1px 1px 1px;
+}
+
+article button {
+  margin: 15px;
+}
+
+article #postImage {
+  width: 20vw;
+  border-radius: 10px;
+  border: #101014 solid 1px;
+  margin: 30px;
+  transition: transform 0.5s;
+}
+
+article #postImage:hover {
+  transform: scale(1.2);
+}
+
+.authorID {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.error {
+  background-color: var(--darkBlue);
+  color: var(--white);
+  padding: 5px;
+}
