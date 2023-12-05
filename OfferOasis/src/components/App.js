@@ -72,7 +72,7 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        Funsta
+        OfferOasis
         {user && <button onClick={() => setWriting(true)}>New Post</button>}
         {!user ? <SignIn /> : <SignOut />}
       </header>
