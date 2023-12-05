@@ -19,8 +19,8 @@ import {
   increment
 } from 'firebase/firestore'
 
-export async function createArticle({ title, body, authorID, imageName, likedBy, likesCount }) {
-  const data = { title, body, date: Timestamp.now(), authorID, imageName, likedBy, likesCount }
+export async function createArticle({ title, body, authorID, imageName }) {
+  const data = { title, body, date: Timestamp.now(), authorID, imageName }
   const docRef = await addDoc(collection(db, 'articles'), data)
   return { id: docRef.id, ...data }
 }
@@ -42,22 +42,4 @@ export async function deleteArticle(articleID) {
     return false
   }
   return true
-}
-
-// Function to like an article
-export async function likeArticle(articleId, username) {
-  const articleRef = doc(db, 'articles', articleId)
-
-  // Check if the user has already liked the article
-  const articleData = (await getDoc(articleRef)).data()
-  const likedBy = articleData.likedBy || []
-
-  if (!likedBy.includes(username)) {
-    await updateDoc(articleRef, {
-      likedBy: arrayUnion(username),
-      likesCount: increment(1)
-    })
-  } else {
-    alert('You have already liked this article.')
-  }
 }

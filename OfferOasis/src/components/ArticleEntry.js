@@ -29,12 +29,10 @@ export default function ArticleEntry({ addArticle, user }) {
   //adds article only when imageName is updated with the unique identifier
   useEffect(() => {
     if (imageName) {
-      const likedBy = []
-      const likesCount = 0
       const imageRef = ref(storage, `images/${imageName}`)
       uploadBytes(imageRef, imageUpload)
         .then(() => {
-          addArticle({ title, body, authorID: user.displayName, imageName, likedBy, likesCount })
+          addArticle({ title, body, authorID: user.displayName, imageName })
         })
         .catch(error => {
           alert('Image upload error:', error)

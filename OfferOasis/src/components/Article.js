@@ -1,5 +1,4 @@
 import { formatRelative, isValid } from 'date-fns'
-import { likeArticle } from '../services/articleService'
 
 export default function Article({ removeArticle, article, username, imageUrl }) {
   const articleDate = article?.date.toDate()
@@ -7,10 +6,6 @@ export default function Article({ removeArticle, article, username, imageUrl }) 
 
   const handleDelete = async () => {
     await removeArticle(article.id)
-  }
-
-  const handleLike = async () => {
-    await likeArticle(article.id, username)
   }
 
   return (
@@ -21,14 +16,10 @@ export default function Article({ removeArticle, article, username, imageUrl }) 
         <section>
           <h2>{article.title}</h2>
           {!imageUrl ? (
-            <img src="./img/loading.gif" id="postImage" alt="Porchita" width="137px" />
+            <img src="./img/loading.gif" id="postImage" alt="postedImage" width="137px" />
           ) : (
             <img src={imageUrl} id="postImage" alt="postImage" />
           )}
-          <div>
-            <button onClick={handleLike}>Like</button>
-            {!article.likesCount ? '' : <p>{article.likesCount} Like/s</p>}
-          </div>
           <p className="date">{`Posted: ${formattedDate}`}</p>
           <p className="author">
             Made by <span className="authorID">{article.authorID ?? 'anonymous'}</span>

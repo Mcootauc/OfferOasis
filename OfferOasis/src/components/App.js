@@ -41,8 +41,8 @@ export default function App() {
 
   // Update the "database" *then* update the internal React state. These
   // two steps are definitely necessary.
-  async function addArticle({ title, body, authorID, imageName, likedBy, likesCount }) {
-    await createArticle({ title, body, authorID, imageName, likedBy, likesCount }).then(article => {
+  async function addArticle({ title, body, authorID, imageName }) {
+    await createArticle({ title, body, authorID, imageName }).then(article => {
       setArticle(article)
       setArticles([article, ...articles])
       setWriting(false)
