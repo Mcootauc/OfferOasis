@@ -76,27 +76,15 @@ export default function App() {
         {user && <button onClick={() => setWriting(true)}>New Post</button>}
         {!user ? <SignIn /> : <SignOut />}
       </header>
-
-      {!user ? (
-        ''
-      ) : (
-        <Nav
-          articles={articles}
-          onClick={a => {
-            setArticle(a)
-            setWriting(false)
-            setImageUrl('')
-          }}
-        />
-      )}
-
-      {!user ? (
-        ''
-      ) : writing ? (
-        <ArticleEntry addArticle={addArticle} user={user} />
-      ) : (
-        <Article removeArticle={removeArticle} article={article} username={user.displayName} imageUrl={imageUrl} />
-      )}
+      <div class="container">
+        {!user ? (
+          ''
+        ) : writing ? (
+          <ArticleEntry addArticle={addArticle} user={user} />
+        ) : (
+          <Article removeArticle={removeArticle} article={article} username={user.displayName} imageUrl={imageUrl} />
+        )}
+      </div>
     </div>
   )
 }
