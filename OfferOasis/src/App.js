@@ -10,6 +10,7 @@ import { Home } from './components/Home.js'
 
 export default function App() {
   const [articles, setArticles] = useState([])
+  const [posts, setPosts] = useState([])
   const [article, setArticle] = useState(null)
   const [writing, setWriting] = useState(false)
   const [imageUrl, setImageUrl] = useState('')
@@ -81,7 +82,13 @@ export default function App() {
       ) : writing ? (
         <ArticleEntry addArticle={addArticle} user={user} />
       ) : (
-        <Home removeArticle={removeArticle} article={article} username={user.displayName} imageUrl={imageUrl} />
+        <Home
+          removeArticle={removeArticle}
+          article={article}
+          username={user.displayName}
+          imageUrl={imageUrl}
+          setPosts={setPosts}
+        />
       )}
     </div>
   )
