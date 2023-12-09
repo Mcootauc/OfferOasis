@@ -14,6 +14,7 @@ export async function createArticle({ title, body, authorID, imageName }) {
 const PAGE_SIZE = 20
 export async function fetchArticles() {
   const snapshot = await getDocs(query(collection(db, 'articles'), orderBy('date', 'desc'), limit(PAGE_SIZE)))
+  console.log(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })))
   return snapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data()

@@ -23,6 +23,7 @@ export default function App() {
   useEffect(() => {
     if (user) {
       fetchArticles().then(setArticles)
+      console.log(posts)
     }
   }, [user])
 
@@ -87,6 +88,7 @@ export default function App() {
           article={article}
           username={user.displayName}
           imageUrl={imageUrl}
+          posts={posts}
           setPosts={setPosts}
         />
       )}

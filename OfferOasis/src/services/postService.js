@@ -1,7 +1,6 @@
 import { Post } from '../Post'
-
-const { db } = require('../firebase/firebaseConfig')
-const { collection, getDocs } = require('firebase/firestore')
+import { db } from '../firebaseConfig'
+import { collection, query, getDocs, addDoc, orderBy, limit, Timestamp, deleteDoc, doc } from 'firebase/firestore'
 
 /**
  * fetches all posts in the "posts" collection
@@ -13,5 +12,6 @@ export async function fetchAllPosts() {
     let data = doc.data()
     allPosts.push(new Post(doc.id, data.authorID, data.body, data.date, data.imageName, data.title))
   })
+  console.log(Object.entries(allPosts).map(([id, data]) => ({ id, ...data })))
   return Object.entries(allPosts).map(([id, data]) => ({ id, ...data }))
 }
