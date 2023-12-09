@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
-import Nav from './Nav'
-import Article from './Article'
-import ArticleEntry from './ArticleEntry'
-import { SignIn, SignOut, useAuthentication } from '../services/authService'
-import { fetchArticles, createArticle, deleteArticle } from '../services/articleService'
-import { storage } from '../firebaseConfig.js'
+import Article from './components/Article.js'
+import ArticleEntry from './components/ArticleEntry.js'
+import { SignIn, SignOut, useAuthentication } from './services/authService.js'
+import { fetchArticles, createArticle, deleteArticle } from './services/articleService.js'
+import { storage } from './firebaseConfig.js'
 import { ref, deleteObject, getDownloadURL } from 'firebase/storage'
-import './App.css'
+import './CSS/App.css'
+import { Home } from './components/Home.js'
 
 export default function App() {
   const [articles, setArticles] = useState([])
@@ -76,15 +76,13 @@ export default function App() {
         {user && <button onClick={() => setWriting(true)}>New Post</button>}
         {!user ? <SignIn /> : <SignOut />}
       </header>
-      <div class="container">
-        {!user ? (
-          ''
-        ) : writing ? (
-          <ArticleEntry addArticle={addArticle} user={user} />
-        ) : (
-          <Article removeArticle={removeArticle} article={article} username={user.displayName} imageUrl={imageUrl} />
-        )}
-      </div>
+      {!user ? (
+        ''
+      ) : writing ? (
+        <ArticleEntry addArticle={addArticle} user={user} />
+      ) : (
+        <Home removeArticle={removeArticle} article={article} username={user.displayName} imageUrl={imageUrl} />
+      )}
     </div>
   )
 }

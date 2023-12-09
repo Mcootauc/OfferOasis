@@ -3,21 +3,7 @@
 // to read or write data, they have to go through this service.
 
 import { db } from '../firebaseConfig'
-import {
-  collection,
-  query,
-  getDocs,
-  addDoc,
-  orderBy,
-  limit,
-  Timestamp,
-  deleteDoc,
-  doc,
-  getDoc,
-  updateDoc,
-  arrayUnion,
-  increment
-} from 'firebase/firestore'
+import { collection, query, getDocs, addDoc, orderBy, limit, Timestamp, deleteDoc, doc } from 'firebase/firestore'
 
 export async function createArticle({ title, body, authorID, imageName }) {
   const data = { title, body, date: Timestamp.now(), authorID, imageName }
