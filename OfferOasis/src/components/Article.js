@@ -1,4 +1,5 @@
 import { formatRelative, isValid } from 'date-fns'
+import '../CSS/Article.css'
 
 export default function Article({ id, authorID, body, date, imageName, title, removeArticle, username, imageUrl }) {
   const articleDate = date.toDate()

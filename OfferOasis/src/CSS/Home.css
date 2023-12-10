@@ -1,0 +1,26 @@
+/* Global Vars */
+:root {
+  --montserrat: Montserrat;
+  --barlow: Barlow Condensed;
+  --white: #ebebf0;
+  --black: #101014;
+  --brown: #d9bba0;
+  --lightBlue: #829fd9;
+  --darkBlue: #273273;
+  --gold: #ffae00;
+}
+
+#homeContainer {
+  height: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  color: var(--lightBlue);
+  padding: 10px 10px;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: scroll;
+  justify-content: space-evenly;
+}

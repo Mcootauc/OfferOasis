@@ -22,6 +22,7 @@ export default function ArticleEntry({ addArticle, user }) {
 
   const uploadImage = async () => {
     if (imageUpload == null) return
+    console.log(imageUpload)
     const theImageName = `${imageUpload.name + v4()}`
     setImageName(theImageName)
   }
@@ -49,7 +50,7 @@ export default function ArticleEntry({ addArticle, user }) {
         Body
         <textarea rows="8" value={body} onChange={e => setBody(e.target.value)}></textarea>
         Choose an Image to Upload
-        <input type="file" id="imgInput" accept=".jpg, .jpeg" onChange={e => setImageUpload(e.target.files[0])} />
+        <input type="file" id="imgInput" accept=".png, .jpg, .jpeg" onChange={e => setImageUpload(e.target.files[0])} />
         <button type="submit">Create</button>
       </form>
     </div>

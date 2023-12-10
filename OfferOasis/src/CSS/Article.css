@@ -1,0 +1,59 @@
+/* Global Vars */
+:root {
+  --montserrat: Montserrat;
+  --barlow: Barlow Condensed;
+  --white: #ebebf0;
+  --black: #101014;
+  --brown: #d9bba0;
+  --lightBlue: #829fd9;
+  --darkBlue: #273273;
+  --gold: #ffae00;
+}
+
+article {
+  border: var(--black) 3.5px solid;
+  border-radius: 10px;
+  display: flex;
+  font-family: var(--montserrat);
+  text-align: center;
+}
+
+article .date {
+  white-space: normal;
+  word-wrap: break-word;
+  font-style: italic;
+}
+
+article .body {
+  padding: 5vh;
+  max-width: 400px;
+  white-space: normal;
+  word-wrap: break-word;
+  background-color: var(--darkBlue);
+  color: var(--white);
+  border-radius: 50px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-shadow: var(--black) 1px 1px 1px;
+}
+
+article button {
+  margin: 15px;
+}
+
+article #postImage {
+  width: 20vw;
+  border-radius: 10px;
+  border: #101014 solid 1px;
+  margin: 30px;
+  transition: transform 0.5s;
+}
+
+article #postImage:hover {
+  transform: scale(1.2);
+}
+
+.authorID {
+  font-weight: bold;
+  text-decoration: underline;
+}

@@ -1,15 +1,16 @@
 import Article from './Article.js'
 import { fetchAllPosts } from '../services/postService'
 import { useEffect } from 'react'
+import '../CSS/Home.css'
 import { set } from 'date-fns'
 
-export function Home({ removeArticle, article, username, imageUrl, posts, setPosts }) {
+export function Home({ removeArticle, username, imageUrl, posts, setPosts }) {
   useEffect(() => {
     fetchAllPosts().then(setPosts)
   }, [])
 
   return (
-    <div className="container">
+    <div id="homeContainer" className="grid">
       {!posts ? (
         <h2>No Posts Yet</h2>
       ) : (

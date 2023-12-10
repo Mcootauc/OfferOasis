@@ -51,7 +51,6 @@ form textarea {
 nav,
 article {
   font-family: var(--montserrat);
-  overflow-x: auto;
   height: 100%;
   padding: 10px;
 }
@@ -68,63 +67,10 @@ nav p:hover {
   cursor: pointer;
 }
 
-.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 .articleEntry {
   padding: 0;
   margin: 0;
   height: 100vh;
-}
-
-article {
-  display: flex;
-  font-family: var(--montserrat);
-  justify-content: space-between;
-}
-article .date {
-  white-space: normal;
-  word-wrap: break-word;
-  font-style: italic;
-}
-
-article .body {
-  padding: 5vh;
-  max-width: 400px;
-  white-space: normal;
-  word-wrap: break-word;
-  background-color: var(--darkBlue);
-  color: var(--white);
-  border-radius: 50px;
-  font-size: 1.2em;
-  font-weight: bold;
-  font-family: var(--montserrat);
-  text-shadow: var(--black) 1px 1px 1px;
-}
-
-article button {
-  margin: 15px;
-}
-
-article #postImage {
-  width: 20vw;
-  border-radius: 10px;
-  border: #101014 solid 1px;
-  margin: 30px;
-  transition: transform 0.5s;
-}
-
-article #postImage:hover {
-  transform: scale(1.2);
-}
-
-.authorID {
-  font-weight: bold;
-  text-decoration: underline;
 }
 
 .error {
