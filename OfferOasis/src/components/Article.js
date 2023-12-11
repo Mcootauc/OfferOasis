@@ -9,10 +9,6 @@ export default function Article({ id, authorID, body, date, imageURL, title, rem
     await removeArticle(id)
   }
 
-  const showImageUrl = () => {
-    console.log('lets go:' + imageURL)
-  }
-
   return (
     <article>
       <section>
@@ -28,7 +24,6 @@ export default function Article({ id, authorID, body, date, imageURL, title, rem
         </p>
         <p className="body">{body}</p>
         {username === authorID ? <button onClick={handleDelete}>Delete</button> : ''}
-        <button onClick={showImageUrl}>bruh</button>
       </section>
     </article>
   )
