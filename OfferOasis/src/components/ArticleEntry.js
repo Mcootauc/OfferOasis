@@ -1,49 +1,30 @@
-import { useEffect, useState } from 'react'
-import { storage } from '../firebaseConfig.js'
-import { ref, uploadBytes } from 'firebase/storage'
-import { v4 } from 'uuid'
+import { useState } from 'react'
+import { createPost } from '../services/postService'
 
-export default function ArticleEntry({ addArticle, user }) {
+export default function ArticleEntry({ setWritingFalse }) {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
-  const [imageUpload, setImageUpload] = useState(null) // New state for the uploaded file
-  const [imageName, setImageName] = useState('') // New state for the image unique identifier
+  const [imageUpload, setImageUpload] = useState() // New state for the uploaded file
   const [error, setError] = useState(null)
 
-  async function submit(e) {
-    setError(null)
+  async function createNewPost(e) {
     e.preventDefault()
+    setError(null)
     if (!title.trim() || !body.trim() || !imageUpload) {
       setError('Both the title, body, and image must be supplied')
     } else {
-      await uploadImage()
+      createPost(title, body, imageUpload)
     }
   }
 
-  const uploadImage = async () => {
-    if (imageUpload == null) return
-    console.log(imageUpload)
-    const theImageName = `${imageUpload.name + v4()}`
-    setImageName(theImageName)
+  function cancelPosting(e) {
+    e.preventDefault()
+    setWritingFalse()
   }
-
-  //adds article only when imageName is updated with the unique identifier
-  useEffect(() => {
-    if (imageName) {
-      const imageRef = ref(storage, `images/${imageName}`)
-      uploadBytes(imageRef, imageUpload)
-        .then(() => {
-          addArticle({ title, body, authorID: user.displayName, imageName })
-        })
-        .catch(error => {
-          alert('Image upload error:', error)
-        })
-    }
-  }, [imageName, title, body, user.displayName, addArticle, imageUpload])
 
   return (
     <div className="articleEntry">
-      <form onSubmit={submit}>
+      <form onSubmit={createNewPost}>
         {error && <p className="error">{error}</p>}
         Title
         <input value={title} onChange={e => setTitle(e.target.value)} />
@@ -51,7 +32,12 @@ export default function ArticleEntry({ addArticle, user }) {
         <textarea rows="8" value={body} onChange={e => setBody(e.target.value)}></textarea>
         Choose an Image to Upload
         <input type="file" id="imgInput" accept=".png, .jpg, .jpeg" onChange={e => setImageUpload(e.target.files[0])} />
-        <button type="submit">Create</button>
+        <button id="createButton" onClick={createNewPost}>
+          Create
+        </button>
+        <button id="backButton" onClick={cancelPosting}>
+          Back
+        </button>
       </form>
     </div>
   )

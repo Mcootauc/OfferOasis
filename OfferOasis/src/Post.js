@@ -1,10 +1,10 @@
 export class Post {
-  constructor(id, authorID, body, date, imageName, title) {
+  constructor(id, authorID, body, date, imageURL, title) {
     this.id = id
     this.authorID = authorID
     this.body = body
     this.date = date
-    this.imageName = imageName
+    this.imageURL = imageURL
     this.title = title
   }
 

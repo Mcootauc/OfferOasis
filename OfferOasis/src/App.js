@@ -13,7 +13,6 @@ export default function App() {
   const [posts, setPosts] = useState([])
   const [article, setArticle] = useState(null)
   const [writing, setWriting] = useState(false)
-  const [imageUrl, setImageUrl] = useState('')
   const user = useAuthentication()
 
   // This is a trivial app, so just fetch all the articles only when
@@ -26,20 +25,6 @@ export default function App() {
       console.log(posts)
     }
   }, [user])
-
-  useEffect(() => {
-    if (!article) {
-      return
-    }
-    const imageRef = ref(storage, `images/${article.imageName}`)
-    getDownloadURL(imageRef)
-      .then(url => {
-        setImageUrl(url)
-      })
-      .catch(error => {
-        alert('Image upload error:', error)
-      })
-  }, [article])
 
   // Update the "database" *then* update the internal React state. These
   // two steps are definitely necessary.
@@ -87,7 +72,6 @@ export default function App() {
           removeArticle={removeArticle}
           article={article}
           username={user.displayName}
-          imageUrl={imageUrl}
           posts={posts}
           setPosts={setPosts}
         />
