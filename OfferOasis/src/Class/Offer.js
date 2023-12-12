@@ -1,4 +1,4 @@
-export class Post {
+export class Offer {
   constructor(id, authorID, description, price, date, imageURL, imageName, itemName) {
     this.id = id
     this.authorID = authorID

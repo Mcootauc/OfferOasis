@@ -1,18 +1,14 @@
-import { useEffect, useState } from 'react'
-import Article from './components/Article.js'
+import { useState } from 'react'
 import ArticleEntry from './components/ArticleEntry.js'
 import { SignIn, SignOut, useAuthentication } from './services/authService.js'
-import { fetchArticles, createArticle, deleteArticle } from './services/articleService.js'
+import { deleteOffer } from './services/offerService.js'
 import { storage } from './firebaseConfig.js'
-import { ref, deleteObject, getDownloadURL } from 'firebase/storage'
+import { ref, deleteObject } from 'firebase/storage'
 import './CSS/App.css'
 import { Home } from './components/Home.js'
 
 export default function App() {
-  const [articles, setArticles] = useState([])
-  const [posts, setPosts] = useState([])
-  const [post, setPost] = useState([])
-  const [article, setArticle] = useState(null)
+  const [offers, setOffers] = useState([])
   const [writing, setWriting] = useState(false)
   const user = useAuthentication()
 
@@ -20,15 +16,17 @@ export default function App() {
     setWriting(false)
   }
 
-  async function removeArticle(postId, imageName) {
-    const outcome = await deleteArticle(postId)
+  async function removeOffer(offerID, imageName) {
+    const outcome = await deleteOffer(offerID)
     if (!outcome) {
       return
     }
-    //removes article from the articles array
-    const newPost = posts.filter(post => post.id !== postId)
-    //resets the react state to say "No article selected"
-    setPosts(newPost)
+
+    //removes offer from the offers array
+    const newOffer = offers.filter(offer => offer.id !== offerID)
+
+    //resets the react state to say "No Offers Yet"
+    setOffers(newOffer)
 
     //removes image from storage
     const desertRef = ref(storage, `images/${imageName}`)
@@ -43,7 +41,7 @@ export default function App() {
     <div className="App">
       <header>
         <span id="titleName">OfferOasis</span>
-        {user && <button onClick={() => setWriting(true)}>New Post</button>}
+        {user && <button onClick={() => setWriting(true)}>New Offer</button>}
         {!user ? <SignIn /> : <SignOut />}
       </header>
       {!user ? (
@@ -51,13 +49,7 @@ export default function App() {
       ) : writing ? (
         <ArticleEntry setWritingFalse={setWritingFalse} user={user} />
       ) : (
-        <Home
-          removeArticle={removeArticle}
-          article={article}
-          username={user.displayName}
-          posts={posts}
-          setPosts={setPosts}
-        />
+        <Home removeOffer={removeOffer} username={user.displayName} offers={offers} setOffers={setOffers} />
       )}
     </div>
   )

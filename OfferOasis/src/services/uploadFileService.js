@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from 'uuid'
 import { ref, uploadBytesResumable } from 'firebase/storage'
 import { storage } from '../firebaseConfig.js'
 

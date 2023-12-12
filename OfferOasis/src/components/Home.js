@@ -1,23 +1,22 @@
 import Article from './Article.js'
-import { fetchAllPosts } from '../services/postService'
+import { fetchAllOffers } from '../services/offerService.js'
 import { useEffect } from 'react'
 import '../CSS/Home.css'
-import { set } from 'date-fns'
 
-export function Home({ removeArticle, username, posts, setPosts }) {
+export function Home({ removeOffer, username, offers, setOffers }) {
   useEffect(() => {
-    fetchAllPosts().then(setPosts)
+    fetchAllOffers().then(setOffers)
     console.log(
-      posts.map(post => <Article key={post.id} {...post} removeArticle={removeArticle} username={username} />)
+      offers.map(offer => <Article key={offer.id} {...offer} removeOffer={removeOffer} username={username} />)
     )
   }, [])
 
   return (
     <div id="homeContainer" className="grid">
-      {!posts ? (
-        <h2>No Posts Yet</h2>
+      {offers.length === 0 ? (
+        <h2>No Offers Yet</h2>
       ) : (
-        posts.map(post => <Article key={post.id} {...post} removeArticle={removeArticle} username={username} />)
+        offers.map(offer => <Article key={offer.id} {...offer} removeOffer={removeOffer} username={username} />)
       )}
     </div>
   )

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { createPost } from '../services/postService'
+import { createOffer } from '../services/offerService'
 import Loading from './Loading'
 
 export default function ArticleEntry({ setWritingFalse }) {
@@ -10,7 +10,7 @@ export default function ArticleEntry({ setWritingFalse }) {
   const [error, setError] = useState(null)
   const [promiseInProgress, setPromiseInProgress] = useState(false)
 
-  async function createNewPost(e) {
+  async function createNewOffer(e) {
     e.preventDefault()
     setError(null)
     if (!itemName.trim() || !description.trim() || price.length === 0 || !imageUpload) {
@@ -18,21 +18,22 @@ export default function ArticleEntry({ setWritingFalse }) {
       return
     }
     setPromiseInProgress(true)
-    await createPost(itemName, description, price, imageUpload)
+    await createOffer(itemName, description, price, imageUpload)
     setPromiseInProgress(false)
     setWritingFalse()
   }
 
-  function cancelPosting(e) {
+  function cancelOffer(e) {
     e.preventDefault()
     setWritingFalse()
   }
+
   if (promiseInProgress) {
-    return <img src="../../imgs/loading.gif" id="postImage" alt="Porchita" width="137px" />
+    return <img src="../../imgs/loading.gif" id="offerImage" alt="Porchita" width="137px" />
   } else {
     return (
       <div className="articleEntry">
-        <form onSubmit={createNewPost}>
+        <form onSubmit={createNewOffer}>
           {error && <p className="error">{error}</p>}
           Item Name
           <input id="productName" value={itemName} onChange={e => setItemName(e.target.value)} />
@@ -52,10 +53,10 @@ export default function ArticleEntry({ setWritingFalse }) {
             accept=".png, .jpg, .jpeg"
             onChange={e => setImageUpload(e.target.files[0])}
           />
-          <button id="createButton" onClick={createNewPost}>
+          <button id="createButton" onClick={createNewOffer}>
             Create
           </button>
-          <button id="backButton" onClick={cancelPosting}>
+          <button id="backButton" onClick={cancelOffer}>
             Back
           </button>
         </form>

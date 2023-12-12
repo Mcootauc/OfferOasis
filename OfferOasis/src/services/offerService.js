@@ -1,45 +1,44 @@
-import { Post } from '../Post'
-import { db } from '../firebaseConfig'
-import { collection, getDocs, addDoc, orderBy } from 'firebase/firestore'
+import { Offer } from '../Class/Offer.js'
+import { db } from '../firebaseConfig.js'
+import { collection, getDocs, addDoc, orderBy, deleteDoc, doc } from 'firebase/firestore'
 import { auth, storage } from '../firebaseConfig.js'
 import { ref, getDownloadURL } from 'firebase/storage'
 import { v4 as uuidv4 } from 'uuid'
 import { uploadFile } from './uploadFileService.js'
 
 /**
- * fetches all posts in the "posts" collection
+ * fetches all offers in the "offers" collection
  */
-export async function fetchAllPosts() {
-  const allPosts = []
-  const querySnapshot = await getDocs(collection(db, 'posts'), orderBy('date', 'desc'))
+export async function fetchAllOffers() {
+  const allOffers = []
+  const querySnapshot = await getDocs(collection(db, 'offers'), orderBy('date', 'desc'))
   querySnapshot.forEach(doc => {
     let data = doc.data()
-    allPosts.push(
-      new Post(
+    allOffers.push(
+      new Offer(
         doc.id,
         data.userName,
         data.description,
         data.price,
         data.date,
-        data.postImage,
+        data.offerImage,
         data.imageName,
         data.itemName
       )
     )
   })
-  console.log(Object.entries(allPosts).map(([id, data]) => ({ id, ...data })))
-  return Object.entries(allPosts).map(([id, data]) => ({ id, ...data }))
+  console.log(Object.entries(allOffers).map(([id, data]) => ({ id, ...data })))
+  return Object.entries(allOffers).map(([id, data]) => ({ id, ...data }))
 }
 
-const postsCollection = collection(db, 'posts')
-
-export async function createPost(itemName, description, price, postImage) {
+const offersCollection = collection(db, 'offers')
+export async function createOffer(itemName, description, price, offerImage) {
   // As this is just fake data for messing around, we'll throw in a quick
   // and unreliable database id. In a real app, the id should be generated
   // by the database itself (or you can use UUIDs).
   //save nft to firebase
   let id = uuidv4()
-  let imagePath = await uploadFile(postImage, id)
+  let imagePath = await uploadFile(offerImage, id)
 
   //delay until image is registered in firebase
   await new Promise(resolve => setTimeout(resolve, 2000))
@@ -47,19 +46,29 @@ export async function createPost(itemName, description, price, postImage) {
   try {
     const url = await getDownloadURL(ref(storage, imagePath))
 
-    const docRef = await addDoc(postsCollection, {
+    const docRef = await addDoc(offersCollection, {
       userName: auth.currentUser.displayName,
       itemName: itemName,
       description: description,
       price: price,
-      postImage: url,
+      offerImage: url,
       imageName: id,
       date: new Date()
     })
-    return { id: docRef.id, itemName, description, price, postImage: url, imageName: id, date: new Date() }
+    return { id: docRef.id, itemName, description, price, offerImage: url, imageName: id, date: new Date() }
   } catch (error) {
     console.error('Error from firebase: ', error)
     alert('Error occurred saving image or doc: ' + error.message)
     throw error // Re-throw the error if you want to handle it elsewhere
   }
+}
+
+export async function deleteOffer(offerID) {
+  try {
+    await deleteDoc(doc(db, 'offers', offerID))
+  } catch (e) {
+    alert('Error removing document: ', e)
+    return false
+  }
+  return true
 }
