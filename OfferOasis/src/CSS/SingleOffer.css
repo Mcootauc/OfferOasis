@@ -6,15 +6,17 @@
   --black: #101014;
   --brown: #d9bba0;
   --lightBlue: #829fd9;
+  --blue: #00a3ce;
   --darkBlue: #273273;
   --yellowOrange: #ffb84d;
   --gold: #ffae00;
-  --green: #05954e;
+  --Green: #03a64a;
 }
 
 article {
+  margin: 10px;
   padding: 10px;
-  background-color: var(--blue);
+  background-color: var(--white);
   font-family: var(--montserrat);
   min-height: 560px;
   max-height: 560px;
@@ -23,6 +25,11 @@ article {
   box-shadow: var(--black) 3px 3px 3px;
   display: flex;
   text-align: center;
+  transition: transform 0.5s;
+}
+
+article:hover {
+  transform: scale(1.03);
 }
 
 article h2 {
@@ -30,15 +37,14 @@ article h2 {
   margin: auto;
   font-size: 2em;
   font-weight: bold;
-  color: var(--green);
-  -webkit-text-stroke: 1px black; /* 1px black text stroke */
+  color: var(--blue);
+  border-radius: 100px;
 }
 
 article .date {
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--green);
-  -webkit-text-stroke: 1px black; /* 1px black text stroke */
+  color: var(--black);
   white-space: normal;
   word-wrap: break-word;
   font-style: italic;
@@ -47,8 +53,7 @@ article .date {
 article .author {
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--green);
-  -webkit-text-stroke: 1px black; /* 1px black text stroke */
+  color: var(--black);
   white-space: normal;
   word-wrap: break-word;
 }
@@ -58,8 +63,8 @@ article .price {
   margin: 0;
   font-size: 1.5em;
   font-weight: bold;
-  color: var(--green);
-  -webkit-text-stroke: 1px black; /* 1px black text stroke */
+  color: var(--blue);
+  border-radius: 100px;
   white-space: normal;
   word-wrap: break-word;
 }
@@ -74,7 +79,6 @@ article .body {
   border-radius: 50px;
   font-size: 1.2em;
   font-weight: bold;
-  text-shadow: var(--black) 1px 1px 1px;
 }
 
 article button {
@@ -98,8 +102,17 @@ article #offerImage {
 }
 
 .offerEntry {
+  font-family: var(--montserrat);
+  display: flex;
+  text-align: center;
   background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
   padding: 0;
   margin: 0;
   height: 100vh;
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

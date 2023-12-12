@@ -8,7 +8,9 @@
   --lightBlue: #829fd9;
   --blue: #00a3ce;
   --darkBlue: #273273;
+  --yellowOrange: #ffb84d;
   --gold: #ffae00;
+  --green: #05954e;
 }
 
 .App {
@@ -23,9 +25,14 @@ header {
   display: flex;
   font-family: var(--montserrat);
   justify-content: space-between;
-  grid-column: 1 / span 2;
+  align-items: center;
+  grid-column: 1 / span 3;
   padding: 10px 15px;
   background: var(--blue);
+}
+
+#newOfferButton {
+  margin-left: 170px;
 }
 
 #titleName {

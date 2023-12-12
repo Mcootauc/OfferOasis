@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { createOffer } from '../services/offerService'
-import Loading from './Loading'
+import Loading from './Loading.js'
 
 export default function OfferEntry({ setWritingFalse }) {
   const [itemName, setItemName] = useState('')
@@ -29,7 +29,7 @@ export default function OfferEntry({ setWritingFalse }) {
   }
 
   if (promiseInProgress) {
-    return <img src="../../imgs/loading.gif" id="offerImage" alt="Porchita" width="137px" />
+    return <Loading />
   } else {
     return (
       <div className="offerEntry">
@@ -53,12 +53,14 @@ export default function OfferEntry({ setWritingFalse }) {
             accept=".png, .jpg, .jpeg"
             onChange={e => setImageUpload(e.target.files[0])}
           />
-          <button id="createButton" onClick={createNewOffer}>
-            Create
-          </button>
-          <button id="backButton" onClick={cancelOffer}>
-            Back
-          </button>
+          <div id="buttons">
+            <button id="createButton" onClick={createNewOffer}>
+              Create
+            </button>
+            <button id="backButton" onClick={cancelOffer}>
+              Back
+            </button>
+          </div>
         </form>
       </div>
     )

@@ -13,16 +13,18 @@
   --green: #05954e;
 }
 
-#homeContainer {
-  padding: 35px 0px;
-  height: 100%;
-  max-width: 100%;
-  cursor: pointer;
-  color: var(--lightBlue);
-  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
+#LoadingGif {
   display: flex;
-  flex-direction: row;
+  font-size: large;
+  font-weight: bold;
+  font-family: var(--montserrat);
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
+}
+
+#offerImage {
+  border: var(--black) 3.5px solid;
+  border-radius: 100px;
 }
