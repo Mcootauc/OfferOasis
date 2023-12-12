@@ -23,7 +23,8 @@ export async function fetchArticles() {
 
 export async function deleteArticle(articleID) {
   try {
-    await deleteDoc(doc(db, 'articles', articleID))
+    console.log('articleId:' + articleID)
+    await deleteDoc(doc(db, 'posts', articleID))
   } catch (e) {
     alert('Error removing document: ', e)
     return false

@@ -1,12 +1,13 @@
 export class Post {
-  constructor(id, authorID, body, price, date, imageURL, title) {
+  constructor(id, authorID, description, price, date, imageURL, imageName, itemName) {
     this.id = id
     this.authorID = authorID
-    this.body = body
+    this.description = description
     this.price = price
     this.date = date
     this.imageURL = imageURL
-    this.title = title
+    this.imageName = imageName
+    this.itemName = itemName
   }
 
   toString() {
@@ -18,10 +19,10 @@ export class Post {
       this.date +
       ' with image ' +
       this.imageName +
-      ' and title ' +
-      this.title +
-      ' and body ' +
-      this.body +
+      ' and itemName ' +
+      this.itemName +
+      ' and description ' +
+      this.description +
       ' and price ' +
       this.price
     )

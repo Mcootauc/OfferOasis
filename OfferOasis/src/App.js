@@ -11,48 +11,27 @@ import { Home } from './components/Home.js'
 export default function App() {
   const [articles, setArticles] = useState([])
   const [posts, setPosts] = useState([])
+  const [post, setPost] = useState([])
   const [article, setArticle] = useState(null)
   const [writing, setWriting] = useState(false)
   const user = useAuthentication()
-
-  // This is a trivial app, so just fetch all the articles only when
-  // a user logs in. A real app would do pagination. Note that
-  // "fetchArticles" is what gets the articles from the service and
-  // then "setArticles" writes them into the React state.
-  useEffect(() => {
-    if (user) {
-      fetchArticles().then(setArticles)
-      console.log(posts)
-    }
-  }, [user])
 
   function setWritingFalse() {
     setWriting(false)
   }
 
-  // Update the "database" *then* update the internal React state. These
-  // two steps are definitely necessary.
-  async function addArticle({ title, body, authorID, imageName }) {
-    await createArticle({ title, body, authorID, imageName }).then(article => {
-      setArticle(article)
-      setArticles([article, ...articles])
-      setWriting(false)
-    })
-  }
-
-  async function removeArticle(articleId) {
-    const outcome = await deleteArticle(articleId)
+  async function removeArticle(postId, imageName) {
+    const outcome = await deleteArticle(postId)
     if (!outcome) {
       return
     }
     //removes article from the articles array
-    const newArticle = articles.filter(article => article.id !== articleId)
+    const newPost = posts.filter(post => post.id !== postId)
     //resets the react state to say "No article selected"
-    setArticle(null)
-    setArticles(newArticle)
+    setPosts(newPost)
 
     //removes image from storage
-    const desertRef = ref(storage, `images/${article.imageName}`)
+    const desertRef = ref(storage, `images/${imageName}`)
     deleteObject(desertRef)
       .then(() => {})
       .catch(error => {

@@ -14,7 +14,18 @@ export async function fetchAllPosts() {
   const querySnapshot = await getDocs(collection(db, 'posts'), orderBy('date', 'desc'))
   querySnapshot.forEach(doc => {
     let data = doc.data()
-    allPosts.push(new Post(doc.id, data.userName, data.body, data.price, data.date, data.postImage, data.title))
+    allPosts.push(
+      new Post(
+        doc.id,
+        data.userName,
+        data.description,
+        data.price,
+        data.date,
+        data.postImage,
+        data.imageName,
+        data.itemName
+      )
+    )
   })
   console.log(Object.entries(allPosts).map(([id, data]) => ({ id, ...data })))
   return Object.entries(allPosts).map(([id, data]) => ({ id, ...data }))
@@ -22,39 +33,33 @@ export async function fetchAllPosts() {
 
 const postsCollection = collection(db, 'posts')
 
-export async function createPost(title, body, price, postImage) {
+export async function createPost(itemName, description, price, postImage) {
   // As this is just fake data for messing around, we'll throw in a quick
   // and unreliable database id. In a real app, the id should be generated
   // by the database itself (or you can use UUIDs).
   //save nft to firebase
-  let imagePath = await uploadFile(postImage)
+  let id = uuidv4()
+  let imagePath = await uploadFile(postImage, id)
+
   //delay until image is registered in firebase
-  await new Promise(resolve => setTimeout(resolve, 10000))
+  await new Promise(resolve => setTimeout(resolve, 2000))
 
-  getDownloadURL(ref(storage, imagePath))
-    .then(async url => {
-      await addDoc(postsCollection, {
-        id: uuidv4(),
-        userName: auth.currentUser.displayName,
-        title: title,
-        body: body,
-        price: price,
-        postImage: url,
-        date: new Date()
-      })
-        .then(function (docRef) {
-          console.log('url ' + url)
-          console.log('new doc ' + docRef.id)
-        })
-        .catch(function (firebaseError) {
-          alert('error occured saving doc: ' + firebaseError.message)
-        })
-    })
-    .catch(error => {
-      // Handle any errors
-      console.log('error from firebase ' + error)
-      alert('error occured saving image: ' + error)
-    })
+  try {
+    const url = await getDownloadURL(ref(storage, imagePath))
 
-  return { id: Math.random(), title, body, price, postImage, date: new Date() }
+    const docRef = await addDoc(postsCollection, {
+      userName: auth.currentUser.displayName,
+      itemName: itemName,
+      description: description,
+      price: price,
+      postImage: url,
+      imageName: id,
+      date: new Date()
+    })
+    return { id: docRef.id, itemName, description, price, postImage: url, imageName: id, date: new Date() }
+  } catch (error) {
+    console.error('Error from firebase: ', error)
+    alert('Error occurred saving image or doc: ' + error.message)
+    throw error // Re-throw the error if you want to handle it elsewhere
+  }
 }

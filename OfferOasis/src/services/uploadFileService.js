@@ -9,14 +9,13 @@ import { storage } from '../firebaseConfig.js'
  * @param {*} setUploadError: useState function that sets the error, if any, that
  * occured during upload
  */
-export async function uploadFile(file) {
+export async function uploadFile(file, id) {
   // Create the file metadata
   /** @type {any} */
   const metadata = {
     contentType: 'image/jpeg'
   }
 
-  let id = uuidv4()
   let imagePath = 'images/' + id
   // Upload file and metadata to the object 'images/mountains.jpg'
   const storageRef = ref(storage, imagePath)

@@ -3,8 +3,8 @@ import { createPost } from '../services/postService'
 import Loading from './Loading'
 
 export default function ArticleEntry({ setWritingFalse }) {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [itemName, setItemName] = useState('')
+  const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
   const [imageUpload, setImageUpload] = useState() // New state for the uploaded file
   const [error, setError] = useState(null)
@@ -13,12 +13,12 @@ export default function ArticleEntry({ setWritingFalse }) {
   async function createNewPost(e) {
     e.preventDefault()
     setError(null)
-    if (!title.trim() || !body.trim() || price.length === 0 || !imageUpload) {
-      setError('Both the title, body, price and image must be supplied!')
+    if (!itemName.trim() || !description.trim() || price.length === 0 || !imageUpload) {
+      setError('All parameters must be supplied!')
       return
     }
     setPromiseInProgress(true)
-    await createPost(title, body, price, imageUpload)
+    await createPost(itemName, description, price, imageUpload)
     setPromiseInProgress(false)
     setWritingFalse()
   }
@@ -34,10 +34,15 @@ export default function ArticleEntry({ setWritingFalse }) {
       <div className="articleEntry">
         <form onSubmit={createNewPost}>
           {error && <p className="error">{error}</p>}
-          Title
-          <input id="productName" value={title} onChange={e => setTitle(e.target.value)} />
-          Body
-          <textarea id="description" rows="8" value={body} onChange={e => setBody(e.target.value)}></textarea>
+          Item Name
+          <input id="productName" value={itemName} onChange={e => setItemName(e.target.value)} />
+          Description
+          <textarea
+            id="description"
+            rows="8"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          ></textarea>
           Price
           <input id="price" value={price} onChange={e => setPrice(e.target.value)} />
           Choose an Image to Upload

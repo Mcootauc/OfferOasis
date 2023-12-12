@@ -1,18 +1,29 @@
 import { formatRelative, isValid } from 'date-fns'
 import '../CSS/Article.css'
 
-export default function Article({ id, authorID, body, price, date, imageURL, title, removeArticle, username }) {
+export default function Article({
+  id,
+  authorID,
+  description,
+  price,
+  date,
+  imageURL,
+  itemName,
+  imageName,
+  removeArticle,
+  username
+}) {
   const articleDate = date.toDate()
   const formattedDate = isValid(articleDate) ? formatRelative(articleDate, new Date()) : ''
 
   const handleDelete = async () => {
-    await removeArticle(id)
+    await removeArticle(id, imageName)
   }
 
   return (
     <article>
       <section>
-        <h2>{title}</h2>
+        <h2>{itemName}</h2>
         {!imageURL ? (
           <img src="./img/loading.gif" id="postImage" alt="postedImage" width="137px" />
         ) : (
