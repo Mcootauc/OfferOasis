@@ -7,10 +7,14 @@
   --brown: #d9bba0;
   --lightBlue: #829fd9;
   --darkBlue: #273273;
+  --yellowOrange: #ffb84d;
   --gold: #ffae00;
+  --green: #05954e;
 }
 
 article {
+  min-height: 500px;
+  max-height: 500px;
   border: var(--black) 3.5px solid;
   border-radius: 10px;
   display: flex;
@@ -18,18 +22,40 @@ article {
   text-align: center;
 }
 
+article h2 {
+  padding: 12px 0px;
+  margin: auto;
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--green);
+  -webkit-text-stroke: 1px black; /* 1px black text stroke */
+}
+
 article .date {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--green);
+  -webkit-text-stroke: 1px black; /* 1px black text stroke */
   white-space: normal;
   word-wrap: break-word;
   font-style: italic;
 }
 
-article .body {
-  padding: 5vh;
-  max-width: 400px;
+article .author {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--green);
+  -webkit-text-stroke: 1px black; /* 1px black text stroke */
   white-space: normal;
   word-wrap: break-word;
-  background-color: var(--darkBlue);
+}
+
+article .body {
+  padding: 5vh;
+  max-width: 351px;
+  white-space: normal;
+  word-wrap: break-word;
+  background-color: var(--yellowOrange);
   color: var(--white);
   border-radius: 50px;
   font-size: 1.2em;
@@ -42,18 +68,32 @@ article button {
 }
 
 article #postImage {
+  max-height: 300px;
+  min-width: 15vw;
   width: 20vw;
+  min-height: 20vh;
   border-radius: 10px;
   border: #101014 solid 1px;
-  margin: 30px;
+  margin: 10px;
   transition: transform 0.5s;
 }
 
 article #postImage:hover {
-  transform: scale(1.2);
+  transform: scale(1.07);
 }
 
 .authorID {
   font-weight: bold;
   text-decoration: underline;
+}
+
+.articleEntry {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
+  padding: 0;
+  margin: 0;
+  height: 100vh;
 }

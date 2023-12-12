@@ -22,7 +22,6 @@ export default function Article({ id, authorID, body, date, imageURL, title, rem
         <p className="author">
           Made by <span className="authorID">{authorID ?? 'anonymous'}</span>
         </p>
-        <p className="body">{body}</p>
         {username === authorID ? <button onClick={handleDelete}>Delete</button> : ''}
       </section>
     </article>

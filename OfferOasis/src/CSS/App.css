@@ -6,6 +6,7 @@
   --black: #101014;
   --brown: #d9bba0;
   --lightBlue: #829fd9;
+  --blue: #00a3ce;
   --darkBlue: #273273;
   --gold: #ffae00;
 }
@@ -16,19 +17,29 @@
   grid-template-columns: 1fr;
   height: 100vh;
   overflow: scroll;
-  background: rgb(245, 96, 64);
-  background: linear-gradient(0deg, rgba(245, 96, 64, 1) 0%, rgba(252, 175, 69, 1) 100%);
 }
 
 header {
   display: flex;
   font-family: var(--montserrat);
   justify-content: space-between;
-  color: white;
   grid-column: 1 / span 2;
   padding: 10px 15px;
-  background: rgb(64, 93, 230);
-  background: linear-gradient(90deg, rgba(64, 93, 230, 1) 0%, rgba(131, 58, 180, 1) 100%);
+  background: var(--blue);
+}
+
+#titleName {
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers like Chrome and Safari */
+  color: transparent; /* Make text transparent */
+}
+
+#displayName {
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--gold);
 }
 
 button {
@@ -48,29 +59,11 @@ form textarea {
   width: 300px;
 }
 
-nav,
 article {
+  background-color: var(--blue);
   font-family: var(--montserrat);
-  height: 100%;
-  padding: 10px;
-}
-
-nav {
-  font-family: var(--barlow);
-  font-size: 1.3rem;
-  background: rgb(193, 53, 132);
-  background: linear-gradient(0deg, rgba(193, 53, 132, 1) 0%, rgba(253, 29, 29, 1) 100%);
-}
-
-nav p:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.articleEntry {
-  padding: 0;
-  margin: 0;
   height: 100vh;
+  padding: 10px;
 }
 
 .error {

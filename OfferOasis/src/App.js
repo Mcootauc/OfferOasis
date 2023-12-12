@@ -59,7 +59,7 @@ export default function App() {
   return (
     <div className="App">
       <header>
-        OfferOasis
+        <span id="titleName">OfferOasis</span>
         {user && <button onClick={() => setWriting(true)}>New Post</button>}
         {!user ? <SignIn /> : <SignOut />}
       </header>
