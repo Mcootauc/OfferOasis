@@ -1,4 +1,4 @@
-import Article from './Article.js'
+import SingleOffer from './SingleOffer.js'
 import { fetchAllOffers } from '../services/offerService.js'
 import { useEffect } from 'react'
 import '../CSS/Home.css'
@@ -7,7 +7,7 @@ export function Home({ removeOffer, username, offers, setOffers }) {
   useEffect(() => {
     fetchAllOffers().then(setOffers)
     console.log(
-      offers.map(offer => <Article key={offer.id} {...offer} removeOffer={removeOffer} username={username} />)
+      offers.map(offer => <SingleOffer key={offer.id} {...offer} removeOffer={removeOffer} username={username} />)
     )
   }, [])
 
@@ -16,7 +16,7 @@ export function Home({ removeOffer, username, offers, setOffers }) {
       {offers.length === 0 ? (
         <h2>No Offers Yet</h2>
       ) : (
-        offers.map(offer => <Article key={offer.id} {...offer} removeOffer={removeOffer} username={username} />)
+        offers.map(offer => <SingleOffer key={offer.id} {...offer} removeOffer={removeOffer} username={username} />)
       )}
     </div>
   )

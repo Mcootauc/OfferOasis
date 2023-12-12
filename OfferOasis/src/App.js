@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ArticleEntry from './components/ArticleEntry.js'
+import OfferEntry from './components/OfferEntry.js'
 import { SignIn, SignOut, useAuthentication } from './services/authService.js'
 import { deleteOffer } from './services/offerService.js'
 import { storage } from './firebaseConfig.js'
@@ -47,7 +47,7 @@ export default function App() {
       {!user ? (
         ''
       ) : writing ? (
-        <ArticleEntry setWritingFalse={setWritingFalse} user={user} />
+        <OfferEntry setWritingFalse={setWritingFalse} user={user} />
       ) : (
         <Home removeOffer={removeOffer} username={user.displayName} offers={offers} setOffers={setOffers} />
       )}

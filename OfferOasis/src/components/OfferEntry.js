@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { createOffer } from '../services/offerService'
 import Loading from './Loading'
 
-export default function ArticleEntry({ setWritingFalse }) {
+export default function OfferEntry({ setWritingFalse }) {
   const [itemName, setItemName] = useState('')
   const [description, setDescription] = useState('')
   const [price, setPrice] = useState('')
@@ -32,7 +32,7 @@ export default function ArticleEntry({ setWritingFalse }) {
     return <img src="../../imgs/loading.gif" id="offerImage" alt="Porchita" width="137px" />
   } else {
     return (
-      <div className="articleEntry">
+      <div className="offerEntry">
         <form onSubmit={createNewOffer}>
           {error && <p className="error">{error}</p>}
           Item Name

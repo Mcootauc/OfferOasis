@@ -1,7 +1,7 @@
 import { formatRelative, isValid } from 'date-fns'
-import '../CSS/Article.css'
+import '../CSS/SingleOffer.css'
 
-export default function Article({
+export default function SingleOffer({
   id,
   authorID,
   description,
@@ -13,8 +13,8 @@ export default function Article({
   removeOffer,
   username
 }) {
-  const articleDate = date.toDate()
-  const formattedDate = isValid(articleDate) ? formatRelative(articleDate, new Date()) : ''
+  const offerDate = date.toDate()
+  const formattedDate = isValid(offerDate) ? formatRelative(offerDate, new Date()) : ''
 
   const handleDelete = async () => {
     await removeOffer(id, imageName)
