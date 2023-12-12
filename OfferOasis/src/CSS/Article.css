@@ -13,8 +13,8 @@
 }
 
 article {
-  min-height: 500px;
-  max-height: 500px;
+  min-height: 560px;
+  max-height: 560px;
   border: var(--black) 3.5px solid;
   border-radius: 10px;
   display: flex;
