@@ -1,8 +1,9 @@
 export class Post {
-  constructor(id, authorID, body, date, imageURL, title) {
+  constructor(id, authorID, body, price, date, imageURL, title) {
     this.id = id
     this.authorID = authorID
     this.body = body
+    this.price = price
     this.date = date
     this.imageURL = imageURL
     this.title = title
@@ -20,7 +21,9 @@ export class Post {
       ' and title ' +
       this.title +
       ' and body ' +
-      this.body
+      this.body +
+      ' and price ' +
+      this.price
     )
   }
 }

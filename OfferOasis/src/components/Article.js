@@ -1,7 +1,7 @@
 import { formatRelative, isValid } from 'date-fns'
 import '../CSS/Article.css'
 
-export default function Article({ id, authorID, body, date, imageURL, title, removeArticle, username }) {
+export default function Article({ id, authorID, body, price, date, imageURL, title, removeArticle, username }) {
   const articleDate = date.toDate()
   const formattedDate = isValid(articleDate) ? formatRelative(articleDate, new Date()) : ''
 
@@ -18,6 +18,7 @@ export default function Article({ id, authorID, body, date, imageURL, title, rem
         ) : (
           <img src={imageURL} id="postImage" alt="postImage" />
         )}
+        <p className="price">{`$${price}`}</p>
         <p className="date">{`Posted: ${formattedDate}`}</p>
         <p className="author">
           Made by <span className="authorID">{authorID ?? 'anonymous'}</span>

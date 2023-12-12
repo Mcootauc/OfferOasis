@@ -1,6 +1,6 @@
 import { Post } from '../Post'
 import { db } from '../firebaseConfig'
-import { collection, query, getDocs, addDoc, orderBy, limit, Timestamp, deleteDoc, doc } from 'firebase/firestore'
+import { collection, getDocs, addDoc, orderBy } from 'firebase/firestore'
 import { auth, storage } from '../firebaseConfig.js'
 import { ref, getDownloadURL } from 'firebase/storage'
 import { v4 as uuidv4 } from 'uuid'
@@ -14,7 +14,7 @@ export async function fetchAllPosts() {
   const querySnapshot = await getDocs(collection(db, 'posts'), orderBy('date', 'desc'))
   querySnapshot.forEach(doc => {
     let data = doc.data()
-    allPosts.push(new Post(doc.id, data.userName, data.body, data.date, data.postImage, data.title))
+    allPosts.push(new Post(doc.id, data.userName, data.body, data.price, data.date, data.postImage, data.title))
   })
   console.log(Object.entries(allPosts).map(([id, data]) => ({ id, ...data })))
   return Object.entries(allPosts).map(([id, data]) => ({ id, ...data }))
@@ -22,7 +22,7 @@ export async function fetchAllPosts() {
 
 const postsCollection = collection(db, 'posts')
 
-export async function createPost(title, body, postImage) {
+export async function createPost(title, body, price, postImage) {
   // As this is just fake data for messing around, we'll throw in a quick
   // and unreliable database id. In a real app, the id should be generated
   // by the database itself (or you can use UUIDs).
@@ -38,6 +38,7 @@ export async function createPost(title, body, postImage) {
         userName: auth.currentUser.displayName,
         title: title,
         body: body,
+        price: price,
         postImage: url,
         date: new Date()
       })
@@ -55,5 +56,5 @@ export async function createPost(title, body, postImage) {
       alert('error occured saving image: ' + error)
     })
 
-  return { id: Math.random(), title, body, postImage, date: new Date() }
+  return { id: Math.random(), title, body, price, postImage, date: new Date() }
 }

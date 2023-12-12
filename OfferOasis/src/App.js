@@ -26,6 +26,10 @@ export default function App() {
     }
   }, [user])
 
+  function setWritingFalse() {
+    setWriting(false)
+  }
+
   // Update the "database" *then* update the internal React state. These
   // two steps are definitely necessary.
   async function addArticle({ title, body, authorID, imageName }) {
@@ -66,7 +70,7 @@ export default function App() {
       {!user ? (
         ''
       ) : writing ? (
-        <ArticleEntry addArticle={addArticle} user={user} />
+        <ArticleEntry setWritingFalse={setWritingFalse} user={user} />
       ) : (
         <Home
           removeArticle={removeArticle}

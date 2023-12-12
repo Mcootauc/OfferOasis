@@ -13,17 +13,20 @@
 }
 
 article {
+  padding: 10px;
+  background-color: var(--blue);
+  font-family: var(--montserrat);
   min-height: 560px;
   max-height: 560px;
   border: var(--black) 3.5px solid;
   border-radius: 10px;
+  box-shadow: var(--black) 3px 3px 3px;
   display: flex;
-  font-family: var(--montserrat);
   text-align: center;
 }
 
 article h2 {
-  padding: 12px 0px;
+  padding: 10px 0px;
   margin: auto;
   font-size: 2em;
   font-weight: bold;
@@ -43,6 +46,17 @@ article .date {
 
 article .author {
   font-size: 1.2em;
+  font-weight: bold;
+  color: var(--green);
+  -webkit-text-stroke: 1px black; /* 1px black text stroke */
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+article .price {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
   font-weight: bold;
   color: var(--green);
   -webkit-text-stroke: 1px black; /* 1px black text stroke */
@@ -73,13 +87,9 @@ article #postImage {
   width: 20vw;
   min-height: 20vh;
   border-radius: 10px;
-  border: #101014 solid 1px;
+  border: #101014 solid 3px;
   margin: 10px;
   transition: transform 0.5s;
-}
-
-article #postImage:hover {
-  transform: scale(1.07);
 }
 
 .authorID {
@@ -88,10 +98,6 @@ article #postImage:hover {
 }
 
 .articleEntry {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
   padding: 0;
   margin: 0;
