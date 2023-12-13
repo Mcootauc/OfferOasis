@@ -22,7 +22,10 @@ export function Details({ goToPage, offerDetails }) {
   return (
     <div class="container">
       <header>
-        <span id="titleName">OfferOasis</span>
+        <span id="titleAndLogo">
+          <img src="imgs/Oasis.png" id="headerLogo" alt="logo" width="20px" />
+          OfferOasis
+        </span>
         <button onClick={setPageToHome} id="backButton">
           Back
         </button>
