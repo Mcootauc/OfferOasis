@@ -8,7 +8,7 @@ https://offeroasis-190de.web.app/
 - FullStack: [@Mitchell Cootauco](https://github.com/Mcootauc)
 
 ## Audience and Needs
-The audience is anyone who needs to sell or buy products but teenagers are the targeted audience. The needs is a way to sell and buy new products because they value shopping.
+The audience is anyone who needs to sell or buy products but teenagers are the targeted audience. The need is a way to sell and buy new products because they value shopping.
 
 ## Demo
 [![Project Preview](https://img.youtube.com/vi/BpVgsAnZkt8/0.jpg)](https://youtu.be/BpVgsAnZkt8?si=pF4885zw_mVH2wNb)
@@ -35,6 +35,11 @@ The storage holds the uploaded images and the database holds:
 
 ### Database:
 ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+
+### Acknowledgements, Resources, and Thanks:
+https://www.npmjs.com/package/react-geocode <br>
+https://developers.google.com/maps/documentation/embed/get-started<br>
+Thank you, Dondi!
 
 # How to setup
 CD into the OfferOasis folder, and run the following command in the terminal.
