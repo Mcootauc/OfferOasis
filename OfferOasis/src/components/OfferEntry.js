@@ -57,8 +57,8 @@ export default function OfferEntry({ setWritingFalse }) {
             <button id="createButton" onClick={createNewOffer}>
               Create
             </button>
-            <button id="backButton" onClick={cancelOffer}>
-              Back
+            <button id="cancelButton" onClick={cancelOffer}>
+              Cancel
             </button>
           </div>
         </form>

@@ -1,4 +1,5 @@
 import { formatRelative, isValid } from 'date-fns'
+import { Offer } from '../Class/Offer'
 import '../CSS/SingleOffer.css'
 
 export default function SingleOffer({
@@ -10,19 +11,26 @@ export default function SingleOffer({
   imageURL,
   itemName,
   imageName,
+  goToPage,
+  changeToDetails,
   removeOffer,
   username
 }) {
   const offerDate = date.toDate()
   const formattedDate = isValid(offerDate) ? formatRelative(offerDate, new Date()) : ''
 
+  function setToDetails() {
+    changeToDetails(new Offer(id, authorID, description, price, date, imageURL, imageName, itemName))
+    goToPage('details')
+  }
+
   const handleDelete = async () => {
     await removeOffer(id, imageName)
   }
 
   return (
-    <article>
-      <section>
+    <article id="singleArticle">
+      <section id="singleOffer" onClick={setToDetails}>
         <h2>{itemName}</h2>
         <img src={imageURL} id="offerImage" alt="offerImage" />
         <p className="price">{`$${price}`}</p>
@@ -30,8 +38,8 @@ export default function SingleOffer({
         <p className="author">
           Made by <span className="authorID">{authorID ?? 'anonymous'}</span>
         </p>
-        {username === authorID ? <button onClick={handleDelete}>Delete</button> : ''}
       </section>
+      {username === authorID ? <button onClick={handleDelete}>Delete</button> : ''}
     </article>
   )
 }

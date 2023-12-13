@@ -6,14 +6,25 @@ import { storage } from './firebaseConfig.js'
 import { ref, deleteObject } from 'firebase/storage'
 import './CSS/App.css'
 import { Home } from './components/Home.js'
+import { Details } from './components/Details.js'
 
 export default function App() {
   const [offers, setOffers] = useState([])
   const [writing, setWriting] = useState(false)
+  const [page, setPage] = useState('home')
+  const [offerDetails, setDetails] = useState(null)
   const user = useAuthentication()
 
   function setWritingFalse() {
     setWriting(false)
+  }
+
+  function changeToDetails(offer) {
+    setDetails(offer)
+  }
+
+  function goToPage(goTo) {
+    setPage(goTo)
   }
 
   async function removeOffer(offerID, imageName) {
@@ -36,25 +47,39 @@ export default function App() {
         alert('Image upload error:', error)
       })
   }
-
-  return (
-    <div className="App">
-      <header>
-        <span id="titleName">OfferOasis</span>
-        {user && (
-          <button id="newOfferButton" onClick={() => setWriting(true)}>
-            New Offer
-          </button>
+  if (page === 'home') {
+    return (
+      <div className="App">
+        <header>
+          <span id="titleName">OfferOasis</span>
+          {user && (
+            <button id="newOfferButton" onClick={() => setWriting(true)}>
+              New Offer
+            </button>
+          )}
+          {!user ? <SignIn /> : <SignOut />}
+        </header>
+        {!user ? (
+          ''
+        ) : writing ? (
+          <OfferEntry setWritingFalse={setWritingFalse} user={user} />
+        ) : (
+          <Home
+            goToPage={goToPage}
+            changeToDetails={changeToDetails}
+            removeOffer={removeOffer}
+            username={user.displayName}
+            offers={offers}
+            setOffers={setOffers}
+          />
         )}
-        {!user ? <SignIn /> : <SignOut />}
-      </header>
-      {!user ? (
-        ''
-      ) : writing ? (
-        <OfferEntry setWritingFalse={setWritingFalse} user={user} />
-      ) : (
-        <Home removeOffer={removeOffer} username={user.displayName} offers={offers} setOffers={setOffers} />
-      )}
-    </div>
-  )
+      </div>
+    )
+  } else if (page === 'details') {
+    return (
+      <div className="App">
+        <Details goToPage={goToPage} offerDetails={offerDetails} />
+      </div>
+    )
+  }
 }

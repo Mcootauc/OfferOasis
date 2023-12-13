@@ -1,0 +1,125 @@
+/* Global Vars */
+:root {
+  --montserrat: Montserrat;
+  --barlow: Barlow Condensed;
+  --white: #ebebf0;
+  --black: #101014;
+  --brown: #8c593b;
+  --lightBlue: #829fd9;
+  --blue: #00a3ce;
+  --darkBlue: #273273;
+  --yellowOrange: #ffb84d;
+  --gold: #ffae00;
+  --green: #05954e;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.container {
+  font-family: var(--montserrat);
+  width: 100%;
+  height: 100vh;
+}
+
+.leftpane {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  float: left;
+  border-collapse: collapse;
+}
+
+#buyButton,
+#backButton {
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: 20px;
+  border: var(--blue) 2px solid;
+  background-color: rgb(255, 255, 255);
+}
+
+.middlepane {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 35%;
+  float: left;
+  height: 100%;
+  border-collapse: collapse;
+  border-radius: 30px;
+}
+
+.toppane {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, rgb(108, 152, 255) 0%, rgba(2, 0, 36, 1) 100%);
+}
+
+.rightpane {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+#image {
+  max-height: 500px;
+  min-width: 20vw;
+  width: 20vw;
+  min-height: 20vh;
+  object-fit: cover;
+  border-radius: 20px;
+  border: var(--black) 4px solid;
+  box-shadow: var(--black) 3px 3px 3px;
+  transition: width 0.5s;
+  -webkit-transition: width 0.5s;
+  margin-top: 10px;
+  transition: transform 0.5s;
+}
+
+#image:hover {
+  transform: scale(1.06);
+}
+
+#descriptionTitle,
+#offerTitle,
+#locationTitle {
+  color: var(--brown);
+  font-weight: bold;
+  text-shadow: var(--black) 1.1px 1.1px;
+}
+
+#backButton {
+  margin-left: 70%;
+  cursor: pointer;
+}
+
+#googleMapsWidget {
+  color: grey;
+  width: 100%;
+  height: 50%;
+  margin-top: -5%;
+  border-radius: 20px;
+  background-size: 100%;
+  background-image: url('https://www.icegif.com/wp-content/uploads/loading-icegif.gif');
+  border: 1px solid #0076a5;
+}
+
+#buyButton {
+  color: #100a31;
+  font-weight: bold;
+  margin-top: 5%;
+}

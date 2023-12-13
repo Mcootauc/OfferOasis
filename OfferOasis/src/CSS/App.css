@@ -4,7 +4,7 @@
   --barlow: Barlow Condensed;
   --white: #ebebf0;
   --black: #101014;
-  --brown: #d9bba0;
+  --brown: #8c593b;
   --lightBlue: #829fd9;
   --blue: #00a3ce;
   --darkBlue: #273273;
@@ -19,6 +19,7 @@
   grid-template-columns: 1fr;
   height: 100vh;
   overflow: scroll;
+  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
 }
 
 header {
@@ -28,7 +29,7 @@ header {
   align-items: center;
   grid-column: 1 / span 3;
   padding: 10px 15px;
-  background: var(--blue);
+  background: var(--black);
 }
 
 #newOfferButton {

@@ -4,7 +4,7 @@
   --barlow: Barlow Condensed;
   --white: #ebebf0;
   --black: #101014;
-  --brown: #d9bba0;
+  --Brown: #8c593b;
   --lightBlue: #829fd9;
   --blue: #00a3ce;
   --darkBlue: #273273;
@@ -25,6 +25,7 @@ article {
   box-shadow: var(--black) 3px 3px 3px;
   display: flex;
   text-align: center;
+  flex-direction: column;
   transition: transform 0.5s;
 }
 
@@ -37,7 +38,7 @@ article h2 {
   margin: auto;
   font-size: 2em;
   font-weight: bold;
-  color: var(--blue);
+  color: var(--Brown);
   border-radius: 100px;
 }
 
