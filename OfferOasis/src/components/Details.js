@@ -36,10 +36,12 @@ export function Details({ goToPage, offerDetails }) {
       </div>
       <div class="middlepane">
         <h2 id="offerTitle">{offerDetails.itemName}</h2>
-        <img src={offerDetails.imageURL} id="image" alt="post" />
-        <button onClick={handleClick} id="buyButton">
-          {buttonText}
-        </button>
+        <span id="imageAndButton">
+          <img src={offerDetails.imageURL} id="image" alt="post" />
+          <button onClick={handleClick} id="buyButton">
+            {buttonText}
+          </button>
+        </span>
       </div>
       <div class="rightpane">
         {/* <div id="googleMapsWidget">

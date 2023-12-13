@@ -30,8 +30,8 @@ html {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 30%;
-  height: 100%;
+  width: 35%;
+  height: 100vh;
   float: left;
   border-collapse: collapse;
 }
@@ -50,9 +50,9 @@ html {
   flex-direction: column;
   text-align: center;
   align-items: center;
-  width: 35%;
+  width: 30%;
   float: left;
-  height: 100%;
+  height: 100vh;
   border-collapse: collapse;
   border-radius: 30px;
 }
@@ -76,6 +76,8 @@ html {
 }
 
 #image {
+  display: flex;
+  align-items: center;
   max-height: 500px;
   min-width: 20vw;
   width: 20vw;
@@ -84,14 +86,15 @@ html {
   border-radius: 20px;
   border: var(--black) 4px solid;
   box-shadow: var(--black) 3px 3px 3px;
-  transition: width 0.5s;
-  -webkit-transition: width 0.5s;
-  margin-top: 10px;
   transition: transform 0.5s;
 }
 
 #image:hover {
   transform: scale(1.06);
+}
+
+#imageAndButton {
+  margin-top: 60px;
 }
 
 #descriptionTitle,
@@ -121,5 +124,5 @@ html {
 #buyButton {
   color: #100a31;
   font-weight: bold;
-  margin-top: 5%;
+  margin-top: 10%;
 }
