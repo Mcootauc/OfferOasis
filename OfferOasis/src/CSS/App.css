@@ -32,16 +32,32 @@ header {
   background: var(--black);
 }
 
-#newOfferButton {
-  margin-left: 170px;
+#noUserText {
+  font-family: var(--montserrat);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
-#titleName {
+#newOfferButton {
+  margin-left: 138px;
+}
+
+#titleAndLogo {
+  display: flex;
+  align-items: center;
   font-size: 18px;
   font-weight: bold;
   background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
   -webkit-background-clip: text; /* For WebKit/Blink browsers like Chrome and Safari */
   color: transparent; /* Make text transparent */
+}
+
+#headerLogo {
+  margin-right: 7px;
 }
 
 #displayName {

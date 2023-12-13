@@ -51,7 +51,10 @@ export default function App() {
     return (
       <div className="App">
         <header>
-          <span id="titleName">OfferOasis</span>
+          <span id="titleAndLogo">
+            <img src="imgs/Oasis.png" id="headerLogo" alt="logo" width="20px" />
+            OfferOasis
+          </span>
           {user && (
             <button id="newOfferButton" onClick={() => setWriting(true)}>
               New Offer
@@ -60,7 +63,7 @@ export default function App() {
           {!user ? <SignIn /> : <SignOut />}
         </header>
         {!user ? (
-          ''
+          <h1 id="noUserText">Sign in to buy or sell Products!</h1>
         ) : writing ? (
           <OfferEntry setWritingFalse={setWritingFalse} user={user} />
         ) : (
