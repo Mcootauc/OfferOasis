@@ -11,7 +11,7 @@ https://offeroasis-190de.web.app/
 The audience is anyone who needs to sell or buy products but teenagers are the targeted audience. The need is a way to sell and buy new products because they value shopping.
 
 ## Demo
-[![Project Preview](https://img.youtube.com/vi/BpVgsAnZkt8/0.jpg)](https://youtu.be/BpVgsAnZkt8?si=pF4885zw_mVH2wNb)
+https://github.com/lmu-cmsi2021-fall2023/your-own-mitchell-solo-1/assets/73667103/c20e9f9e-a64b-4265-993a-2ac5612b1425
 
 ## Technology
 
