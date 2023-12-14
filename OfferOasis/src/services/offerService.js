@@ -23,7 +23,9 @@ export async function fetchAllOffers() {
         data.date,
         data.offerImage,
         data.imageName,
-        data.itemName
+        data.itemName,
+        data.latitude,
+        data.longitude
       )
     )
   })
@@ -32,7 +34,7 @@ export async function fetchAllOffers() {
 }
 
 const offersCollection = collection(db, 'offers')
-export async function createOffer(itemName, description, price, offerImage) {
+export async function createOffer(itemName, description, price, offerImage, latitude, longitude) {
   // As this is just fake data for messing around, we'll throw in a quick
   // and unreliable database id. In a real app, the id should be generated
   // by the database itself (or you can use UUIDs).
@@ -53,7 +55,9 @@ export async function createOffer(itemName, description, price, offerImage) {
       price: price,
       offerImage: url,
       imageName: id,
-      date: new Date()
+      date: new Date(),
+      latitude: latitude,
+      longitude: longitude
     })
     return { id: docRef.id, itemName, description, price, offerImage: url, imageName: id, date: new Date() }
   } catch (error) {

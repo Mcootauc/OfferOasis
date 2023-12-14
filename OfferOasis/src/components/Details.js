@@ -1,5 +1,6 @@
 import '../CSS/Details.css'
 import { useState } from 'react'
+import { Maps } from '../Maps/Maps.js'
 
 /**
  * View shows details about a post
@@ -44,15 +45,10 @@ export function Details({ goToPage, offerDetails }) {
         </span>
       </div>
       <div class="rightpane">
-        {/* <div id="googleMapsWidget">
-          <MapContainer
-            postTitle={offerDetails.itemName}
-            latitude={offerDetails.latitude}
-            longitude={offerDetails.longitude}
-          />
-        </div> */}
         <h2 id="locationTitle">Location</h2>
-        <h2 id="widget">Insert Widget Here</h2>
+        <div id="googleMapsWidget">
+          <Maps postTitle={offerDetails.title} latitude={offerDetails.latitude} longitude={offerDetails.longitude} />
+        </div>
       </div>
     </div>
   )

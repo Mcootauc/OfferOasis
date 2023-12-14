@@ -1,5 +1,5 @@
 export class Offer {
-  constructor(id, authorID, description, price, date, imageURL, imageName, itemName) {
+  constructor(id, authorID, description, price, date, imageURL, imageName, itemName, latitude, longitude) {
     this.id = id
     this.authorID = authorID
     this.description = description
@@ -8,6 +8,8 @@ export class Offer {
     this.imageURL = imageURL
     this.imageName = imageName
     this.itemName = itemName
+    this.latitude = latitude
+    this.longitude = longitude
   }
 
   toString() {
@@ -24,7 +26,11 @@ export class Offer {
       ' and description ' +
       this.description +
       ' and price ' +
-      this.price
+      this.price +
+      ' and latitude ' +
+      this.latitude +
+      ' and longitude ' +
+      this.longitude
     )
   }
 }

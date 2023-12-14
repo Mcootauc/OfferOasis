@@ -11,6 +11,8 @@ export default function SingleOffer({
   imageURL,
   itemName,
   imageName,
+  latitude,
+  longitude,
   goToPage,
   changeToDetails,
   removeOffer,
@@ -20,7 +22,9 @@ export default function SingleOffer({
   const formattedDate = isValid(offerDate) ? formatRelative(offerDate, new Date()) : ''
 
   function setToDetails() {
-    changeToDetails(new Offer(id, authorID, description, price, date, imageURL, imageName, itemName))
+    changeToDetails(
+      new Offer(id, authorID, description, price, date, imageURL, imageName, itemName, latitude, longitude)
+    )
     goToPage('details')
   }
 
