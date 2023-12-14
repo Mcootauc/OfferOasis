@@ -3,48 +3,45 @@ import { useState } from 'react'
 import { Maps } from '../Maps/Maps.js'
 
 /**
- * View shows details about a post
+ * Displays the details of a offer
  */
 
 export function Details({ goToPage, offerDetails }) {
-  const [buttonText, setButtonText] = useState('Buy $' + offerDetails.price)
+  const [priceText, setPriceText] = useState('Buy $' + offerDetails.price)
 
   function setPageToHome() {
     goToPage('home')
   }
 
   function handleClick() {
-    setButtonText('Bought!')
+    setPriceText('Bought!')
     setTimeout(() => {
-      setButtonText('Buy $' + offerDetails.price)
+      setPriceText('Buy $' + offerDetails.price)
     }, 1500)
   }
 
   return (
-    <div class="container">
+    <div class="detailContainer">
       <header>
-        <span id="titleAndLogo">
+        <span id="detailsTitleAndLogo" onClick={setPageToHome}>
           <img src="imgs/Oasis.png" id="headerLogo" alt="logo" width="20px" />
           OfferOasis
         </span>
-        <button onClick={setPageToHome} id="backButton">
-          Back
-        </button>
       </header>
-      <div class="leftpane">
+      <div class="leftPane">
         <h2 id="descriptionTitle">Description</h2>
         <article>{offerDetails.description}</article>
       </div>
-      <div class="middlepane">
+      <div class="middlePane">
         <h2 id="offerTitle">{offerDetails.itemName}</h2>
         <span id="imageAndButton">
           <img src={offerDetails.imageURL} id="image" alt="post" />
           <button onClick={handleClick} id="buyButton">
-            {buttonText}
+            {priceText}
           </button>
         </span>
       </div>
-      <div class="rightpane">
+      <div class="rightPane">
         <h2 id="locationTitle">Location</h2>
         <div id="googleMapsWidget">
           <Maps postTitle={offerDetails.title} latitude={offerDetails.latitude} longitude={offerDetails.longitude} />

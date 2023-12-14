@@ -1,6 +1,10 @@
+import '../CSS/SingleOffer.css'
 import { formatRelative, isValid } from 'date-fns'
 import { Offer } from '../Class/Offer'
-import '../CSS/SingleOffer.css'
+
+/**
+ * Displays the details of a single offer
+ */
 
 export default function SingleOffer({
   id,

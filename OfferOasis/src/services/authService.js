@@ -1,7 +1,11 @@
 import '../CSS/App.css'
+import { auth } from '../firebaseConfig'
 import { useState, useEffect } from 'react'
 import { signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth'
-import { auth } from '../firebaseConfig'
+
+/**
+ * Handles the Sign in, Sign out, and Authentication
+ */
 
 export function SignIn() {
   return <button onClick={() => signInWithPopup(auth, new GoogleAuthProvider())}>Sign In</button>

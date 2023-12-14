@@ -1,0 +1,70 @@
+/* Global Vars */
+:root {
+  --montserrat: Montserrat;
+  --barlow: Barlow Condensed;
+  --white: #ebebf0;
+  --black: #101014;
+  --brown: #8c593b;
+  --lightBlue: #829fd9;
+  --blue: #00a3ce;
+  --darkBlue: #273273;
+  --yellowOrange: #ffb84d;
+  --gold: #ffae00;
+  --green: #05954e;
+  --red: #ff293b;
+}
+
+.offerEntry {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-family: var(--montserrat);
+  display: flex;
+  text-align: center;
+  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
+}
+
+form {
+  font-family: var(--montserrat);
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+
+form input,
+form textarea {
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+form #buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#cancelButton,
+#createButton {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: var(--black) 2px solid;
+}
+
+#createButton {
+  background-color: var(--green);
+}
+
+#cancelButton {
+  background-color: var(--red);
+}
+
+.error {
+  background-color: var(--darkBlue);
+  color: var(--white);
+  padding: 5px;
+}

@@ -1,3 +1,7 @@
+/**
+ * The Offer Class
+ */
+
 export class Offer {
   constructor(id, authorID, description, price, date, imageURL, imageName, itemName, latitude, longitude) {
     this.id = id

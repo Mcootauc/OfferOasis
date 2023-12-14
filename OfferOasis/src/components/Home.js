@@ -1,16 +1,15 @@
+import '../CSS/Home.css'
 import SingleOffer from './SingleOffer.js'
 import { fetchAllOffers } from '../services/offerService.js'
 import { useEffect } from 'react'
-import '../CSS/Home.css'
+
+/**
+ * Displays the home page
+ */
 
 export function Home({ goToPage, changeToDetails, removeOffer, username, offers, setOffers }) {
   useEffect(() => {
     fetchAllOffers().then(setOffers)
-    console.log(
-      offers.map(offer => (
-        <SingleOffer key={offer.id} {...offer} goToPage={goToPage} removeOffer={removeOffer} username={username} />
-      ))
-    )
   }, [])
 
   return (

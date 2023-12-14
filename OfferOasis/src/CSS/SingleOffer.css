@@ -4,18 +4,22 @@
   --barlow: Barlow Condensed;
   --white: #ebebf0;
   --black: #101014;
-  --Brown: #8c593b;
+  --brown: #8c593b;
   --lightBlue: #829fd9;
   --blue: #00a3ce;
   --darkBlue: #273273;
   --yellowOrange: #ffb84d;
   --gold: #ffae00;
-  --Green: #03a64a;
+  --green: #05954e;
+  --red: #ff293b;
 }
 
 article {
   margin: 10px;
   padding: 10px;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
   background-color: var(--white);
   font-family: var(--montserrat);
   min-height: 560px;
@@ -23,10 +27,8 @@ article {
   border: var(--black) 3.5px solid;
   border-radius: 10px;
   box-shadow: var(--black) 3px 3px 3px;
-  display: flex;
-  text-align: center;
-  flex-direction: column;
   transition: transform 0.5s;
+  cursor: pointer;
 }
 
 article:hover {
@@ -38,8 +40,30 @@ article h2 {
   margin: auto;
   font-size: 2em;
   font-weight: bold;
-  color: var(--Brown);
+  color: var(--brown);
   border-radius: 100px;
+}
+
+article #offerImage {
+  max-height: 300px;
+  min-width: 15vw;
+  width: 20vw;
+  min-height: 20vh;
+  border-radius: 10px;
+  border: #101014 solid 3px;
+  margin: 10px;
+  transition: transform 0.5s;
+}
+
+article .price {
+  padding: 0;
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--blue);
+  border-radius: 100px;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 article .date {
@@ -59,15 +83,9 @@ article .author {
   word-wrap: break-word;
 }
 
-article .price {
-  padding: 0;
-  margin: 0;
-  font-size: 1.5em;
+.authorID {
   font-weight: bold;
-  color: var(--blue);
-  border-radius: 100px;
-  white-space: normal;
-  word-wrap: break-word;
+  text-decoration: underline;
 }
 
 article .body {
@@ -84,36 +102,4 @@ article .body {
 
 article button {
   margin: 15px;
-}
-
-article #offerImage {
-  max-height: 300px;
-  min-width: 15vw;
-  width: 20vw;
-  min-height: 20vh;
-  border-radius: 10px;
-  border: #101014 solid 3px;
-  margin: 10px;
-  transition: transform 0.5s;
-}
-
-.authorID {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-.offerEntry {
-  font-family: var(--montserrat);
-  display: flex;
-  text-align: center;
-  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-}
-
-#buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
 }

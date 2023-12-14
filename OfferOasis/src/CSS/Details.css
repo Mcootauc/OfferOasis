@@ -11,6 +11,7 @@
   --yellowOrange: #ffb84d;
   --gold: #ffae00;
   --green: #05954e;
+  --red: #ff293b;
 }
 
 body,
@@ -20,13 +21,32 @@ html {
   margin: 0;
 }
 
-.container {
+.detailContainer {
   font-family: var(--montserrat);
   width: 100%;
   height: 100vh;
 }
 
-.leftpane {
+#detailsTitleAndLogo {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
+  -webkit-background-clip: text; /* For WebKit/Blink browsers like Chrome and Safari */
+  color: transparent; /* Make text transparent */
+  cursor: pointer;
+}
+
+#descriptionTitle,
+#offerTitle,
+#locationTitle {
+  color: var(--brown);
+  font-weight: bold;
+  text-shadow: var(--black) 1.1px 1.1px;
+}
+
+.leftPane {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -36,16 +56,7 @@ html {
   border-collapse: collapse;
 }
 
-#buyButton,
-#backButton {
-  cursor: pointer;
-  padding: 14px 28px;
-  border-radius: 20px;
-  border: var(--blue) 2px solid;
-  background-color: rgb(255, 255, 255);
-}
-
-.middlepane {
+.middlePane {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -57,22 +68,22 @@ html {
   border-radius: 30px;
 }
 
-.toppane {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-collapse: collapse;
-  width: 100%;
-  height: 100px;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, rgb(108, 152, 255) 0%, rgba(2, 0, 36, 1) 100%);
-}
-
-.rightpane {
+.rightPane {
+  padding: 0;
   display: flex;
   flex-direction: column;
   text-align: center;
   align-items: center;
+  border-collapse: collapse;
+}
+
+#buyButton,
+#backButton {
+  cursor: pointer;
+  padding: 14px 28px;
+  border-radius: 20px;
+  border: var(--blue) 3px solid;
+  background-color: var(--white);
 }
 
 #image {
@@ -97,32 +108,18 @@ html {
   margin-top: 60px;
 }
 
-#descriptionTitle,
-#offerTitle,
-#locationTitle {
-  color: var(--brown);
+#buyButton {
+  font-size: 15px;
+  color: var(--black);
   font-weight: bold;
-  text-shadow: var(--black) 1.1px 1.1px;
-}
-
-#backButton {
-  margin-left: 70%;
-  cursor: pointer;
+  margin-top: 10%;
 }
 
 #googleMapsWidget {
-  color: grey;
-  width: 100%;
+  width: 95%;
   height: 50%;
-  margin-top: -5%;
-  border-radius: 20px;
-  background-size: 100%;
-  background-image: url('https://www.icegif.com/wp-content/uploads/loading-icegif.gif');
-  border: 1px solid #0076a5;
-}
-
-#buyButton {
-  color: #100a31;
-  font-weight: bold;
-  margin-top: 10%;
+  margin-right: 3%;
+  margin-top: 2%;
+  border: var(--black) 4px solid;
+  box-shadow: var(--black) 3px 3px 3px;
 }

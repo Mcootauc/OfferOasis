@@ -4,25 +4,25 @@
   --barlow: Barlow Condensed;
   --white: #ebebf0;
   --black: #101014;
-  --brown: #d9bba0;
+  --brown: #8c593b;
   --lightBlue: #829fd9;
   --blue: #00a3ce;
   --darkBlue: #273273;
   --yellowOrange: #ffb84d;
   --gold: #ffae00;
   --green: #05954e;
+  --red: #ff293b;
 }
 
 #homeContainer {
   padding: 35px 0px;
   height: 100%;
   max-width: 100%;
-  cursor: pointer;
   color: var(--lightBlue);
   background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
   display: flex;
   flex-direction: row;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-evenly;
 }

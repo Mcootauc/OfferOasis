@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import OfferEntry from './components/OfferEntry.js'
-import { SignIn, SignOut, useAuthentication } from './services/authService.js'
-import { deleteOffer } from './services/offerService.js'
-import { storage } from './firebaseConfig.js'
-import { ref, deleteObject } from 'firebase/storage'
 import './CSS/App.css'
+import OfferEntry from './components/OfferEntry.js'
 import { Home } from './components/Home.js'
 import { Details } from './components/Details.js'
+import { storage } from './firebaseConfig.js'
+import { useState } from 'react'
+import { deleteOffer } from './services/offerService.js'
+import { ref, deleteObject } from 'firebase/storage'
+import { SignIn, SignOut, useAuthentication } from './services/authService.js'
 
 export default function App() {
   const [offers, setOffers] = useState([])
@@ -33,13 +33,13 @@ export default function App() {
       return
     }
 
-    //removes offer from the offers array
+    // Removes offer from the offers array
     const newOffer = offers.filter(offer => offer.id !== offerID)
 
-    //resets the react state to say "No Offers Yet"
+    // Resets the react state to say "No Offers Yet"
     setOffers(newOffer)
 
-    //removes image from storage
+    // Removes image from storage
     const desertRef = ref(storage, `images/${imageName}`)
     deleteObject(desertRef)
       .then(() => {})

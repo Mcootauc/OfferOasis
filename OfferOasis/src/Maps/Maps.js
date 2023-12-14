@@ -1,11 +1,14 @@
 import { React, useState } from 'react'
 import { GoogleMap, InfoWindow, MarkerF, useJsApiLoader } from '@react-google-maps/api'
 
+/**
+ * Handles the creation of the map widget
+ */
+
 export function Maps({ offerTitle, latitude, longitude }) {
   const mapStyles = {
-    height: '50vh',
-    width: '100%',
-    borderRadius: '20px'
+    height: '80vh',
+    width: '100%'
   }
 
   const postLocation = {

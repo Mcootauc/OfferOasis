@@ -11,6 +11,7 @@
   --yellowOrange: #ffb84d;
   --gold: #ffae00;
   --green: #05954e;
+  --red: #ff293b;
 }
 
 .App {
@@ -22,16 +23,6 @@
   background: linear-gradient(90deg, rgba(252, 236, 148, 1) 15%, rgba(250, 154, 4, 1) 85%);
 }
 
-header {
-  display: flex;
-  font-family: var(--montserrat);
-  justify-content: space-between;
-  align-items: center;
-  grid-column: 1 / span 3;
-  padding: 10px 15px;
-  background: var(--black);
-}
-
 #noUserText {
   font-family: var(--montserrat);
   padding: 0;
@@ -40,6 +31,18 @@ header {
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+}
+
+/* Header */
+
+header {
+  display: flex;
+  font-family: var(--montserrat);
+  justify-content: space-between;
+  align-items: center;
+  grid-column: 1 / span 3;
+  padding: 10px 15px;
+  background: var(--black);
 }
 
 #newOfferButton {
@@ -68,23 +71,5 @@ header {
 
 button {
   font-family: var(--montserrat);
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px; /* Adjust the maximum width as needed */
-  margin: auto; /* Center the form horizontally */
-}
-
-form input,
-form textarea {
-  margin-bottom: 10px;
-  width: 300px;
-}
-
-.error {
-  background-color: var(--darkBlue);
-  color: var(--white);
-  padding: 5px;
+  cursor: pointer;
 }

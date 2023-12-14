@@ -4,16 +4,17 @@
   --barlow: Barlow Condensed;
   --white: #ebebf0;
   --black: #101014;
-  --brown: #d9bba0;
+  --brown: #8c593b;
   --lightBlue: #829fd9;
   --blue: #00a3ce;
   --darkBlue: #273273;
   --yellowOrange: #ffb84d;
   --gold: #ffae00;
   --green: #05954e;
+  --red: #ff293b;
 }
 
-#LoadingGif {
+#loadingGif {
   display: flex;
   font-size: large;
   font-weight: bold;
