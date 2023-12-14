@@ -45,6 +45,7 @@ Thank you, Dondi!
 CD into the OfferOasis folder, and run the following command in the terminal.
 
 `npm install`
+`npm install react-geocode`
 
 ## To launch the app
 Run the following command into the terminal.
