@@ -22,7 +22,10 @@ export function Details({ goToPage, offerDetails }) {
   return (
     <div class="container">
       <header>
-        <span id="titleName">OfferOasis</span>
+        <span id="titleAndLogo">
+          <img src="imgs/Oasis.png" id="headerLogo" alt="logo" width="20px" />
+          OfferOasis
+        </span>
         <button onClick={setPageToHome} id="backButton">
           Back
         </button>
@@ -33,10 +36,12 @@ export function Details({ goToPage, offerDetails }) {
       </div>
       <div class="middlepane">
         <h2 id="offerTitle">{offerDetails.itemName}</h2>
-        <img src={offerDetails.imageURL} id="image" alt="post" />
-        <button onClick={handleClick} id="buyButton">
-          {buttonText}
-        </button>
+        <span id="imageAndButton">
+          <img src={offerDetails.imageURL} id="image" alt="post" />
+          <button onClick={handleClick} id="buyButton">
+            {buttonText}
+          </button>
+        </span>
       </div>
       <div class="rightpane">
         {/* <div id="googleMapsWidget">
